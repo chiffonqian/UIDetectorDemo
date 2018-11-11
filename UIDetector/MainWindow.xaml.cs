@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using 
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -29,12 +30,13 @@ namespace UIDetector
 
         private void MouseHook_LeftButtonUp(MouseHook.MSLLHOOKSTRUCT mouseStruct)
         {
+
             throw new NotImplementedException();
         }
 
         private void bt_start_Click(object sender, RoutedEventArgs e)
         {
-
+            mouseHook.Install();
         }
     }
 }
