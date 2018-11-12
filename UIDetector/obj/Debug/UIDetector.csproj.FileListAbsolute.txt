@@ -1,0 +1,14 @@
+C:\Users\Chiffon\Documents\Visual Studio 2015\Projects\UIDetector\UIDetector\bin\Debug\UIDetector.exe.config
+C:\Users\Chiffon\Documents\Visual Studio 2015\Projects\UIDetector\UIDetector\bin\Debug\UIDetector.exe
+C:\Users\Chiffon\Documents\Visual Studio 2015\Projects\UIDetector\UIDetector\bin\Debug\UIDetector.pdb
+C:\Users\Chiffon\Documents\Visual Studio 2015\Projects\UIDetector\UIDetector\obj\Debug\UIDetector.csprojResolveAssemblyReference.cache
+C:\Users\Chiffon\Documents\Visual Studio 2015\Projects\UIDetector\UIDetector\obj\Debug\MainWindow.g.cs
+C:\Users\Chiffon\Documents\Visual Studio 2015\Projects\UIDetector\UIDetector\obj\Debug\App.g.cs
+C:\Users\Chiffon\Documents\Visual Studio 2015\Projects\UIDetector\UIDetector\obj\Debug\UIDetector_MarkupCompile.cache
+C:\Users\Chiffon\Documents\Visual Studio 2015\Projects\UIDetector\UIDetector\obj\Debug\UIDetector_MarkupCompile.lref
+C:\Users\Chiffon\Documents\Visual Studio 2015\Projects\UIDetector\UIDetector\obj\Debug\MainWindow.baml
+C:\Users\Chiffon\Documents\Visual Studio 2015\Projects\UIDetector\UIDetector\obj\Debug\UIDetector.g.resources
+C:\Users\Chiffon\Documents\Visual Studio 2015\Projects\UIDetector\UIDetector\obj\Debug\UIDetector.Properties.Resources.resources
+C:\Users\Chiffon\Documents\Visual Studio 2015\Projects\UIDetector\UIDetector\obj\Debug\UIDetector.csproj.GenerateResource.Cache
+C:\Users\Chiffon\Documents\Visual Studio 2015\Projects\UIDetector\UIDetector\obj\Debug\UIDetector.exe
+C:\Users\Chiffon\Documents\Visual Studio 2015\Projects\UIDetector\UIDetector\obj\Debug\UIDetector.pdb

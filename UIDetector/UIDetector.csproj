@@ -46,6 +46,8 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationClient" />
+    <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
@@ -55,6 +57,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Win32\ErrorCodes.cs" />
+    <Compile Include="Win32\GDI.cs" />
+    <Compile Include="Win32\Kernel.cs" />
+    <Compile Include="Win32\Multimedia.cs" />
+    <Compile Include="Win32\NetApi.cs" />
+    <Compile Include="Win32\Shell.cs" />
+    <Compile Include="Win32\User.cs" />
+    <Compile Include="Win32\Win32.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
