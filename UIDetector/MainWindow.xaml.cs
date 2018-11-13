@@ -26,6 +26,7 @@ namespace UIDetector
     public partial class MainWindow : Window
     {
         MouseHook mouseHook = new MouseHook();
+
         AutomationElement rootElement = AutomationElement.RootElement;
         string processName = String.Empty;
         string processPath = String.Empty;
@@ -39,6 +40,7 @@ namespace UIDetector
         private void MouseHook_LeftButtonUp(MouseHook.MSLLHOOKSTRUCT mouseStruct)
         {
             mouseHook.Uninstall();
+            Point mousePoint = new Point(mouseStruct.pt.x, mouseStruct.pt.y);
             int hwnd = User.WindowFromPoint(mouseStruct.pt.x, mouseStruct.pt.y);
             if(0 == hwnd)
             {
@@ -66,13 +68,77 @@ namespace UIDetector
                 return;
             }
             Automation.Condition condition = new PropertyCondition(AutomationElement.NameProperty, mainwndText);
+            AutomationElement appElement = rootElement.FindFirst(TreeScope.Children, condition);
+            AutomationElementCollection theCollection = appElement.FindAll(TreeScope.Descendants,Automation.Condition.TrueCondition);
+            if(null == appElement)
+            {
+                return;
+            }
+            AutomationElement focusElement = AutomationElement.FromPoint(mousePoint);
+            switch (focusElement.Current.FrameworkId)
+            {
+                case "WPF":
+                    switch (focusElement.Current.ClassName)
+                    {
+                        case "TextBox":
+                            {
+                                ValuePattern pattern = focusElement.GetCurrentPattern(ValuePattern.Pattern) as ValuePattern;
+                                tb_detail.Text += pattern.Current.Value + "\r\n";
+                            }
+                            break;
+                        case "TextBlock":
+                        case "Text":
+                            {
+                                tb_detail.Text += focusElement.Current.Name + "\r\n";
+                            }
+                            break;
+                        case "RichTextBox":
+                            {
+                                TextPattern pattern = focusElement.GetCurrentPattern(TextPattern.Pattern) as TextPattern;
+                                string controlText = pattern.DocumentRange.GetText(-1);
+                                tb_detail.Text += controlText+"\r\n";
+                            }
+                            break;
+                    }
+                    break;
+                case "Win32":
+                    break;
+                case "WinForms":
+                    break;
+                case "Silverlight":
+                    break;
+                case "SWT":
+                    break;
+                default:
+                    break;
 
-            throw new NotImplementedException();
+            }
+            TreeWalker tWalker = TreeWalker.ControlViewWalker;
+            AutomationElement parentElement = tWalker.GetParent(focusElement);
+            if(parentElement == AutomationElement.RootElement)
+            {
+                return;
+            }
+            while (true)
+            {
+                AutomationElement element = tWalker.GetParent(parentElement);
+                if (element == AutomationElement.RootElement)
+                {
+                    break;
+                }
+                else
+                {
+
+                    parentElement = element;
+                }
+            }
+
         }
 
         private void bt_start_Click(object sender, RoutedEventArgs e)
         {
             mouseHook.Install();
+            tb_detail.Text += "mouse hook start:\r\n";
         }
     }
 }
