@@ -60,12 +60,8 @@ namespace UIDetector
                 {
                     mainwndText = p.MainWindowTitle;
                     processName = p.ProcessName;
-                    processPath = p.MainModule.FileName;
+                    //processPath = p.MainModule.FileName;
                 }
-            }
-            if (String.IsNullOrEmpty(processPath))
-            {
-                return;
             }
             Automation.Condition condition = new PropertyCondition(AutomationElement.NameProperty, mainwndText);
             AutomationElement appElement = rootElement.FindFirst(TreeScope.Children, condition);
@@ -102,8 +98,20 @@ namespace UIDetector
                     }
                     break;
                 case "Win32":
+                    if (focusElement.Current.ControlType==ControlType.Document
+                        || focusElement.Current.ControlType == ControlType.Edit)
+                    {
+                        TextPattern pattern = focusElement.GetCurrentPattern(TextPattern.Pattern) as TextPattern;
+                        string controlText = pattern.DocumentRange.GetText(-1);
+                        tb_detail.Text += controlText + "\r\n";
+                    }
+                    else if (focusElement.Current.ControlType == ControlType.Text)
+                    {
+                        tb_detail.Text += focusElement.Current.Name + "\r\n";
+                    }
                     break;
-                case "WinForms":
+                case "WinForm":
+                    tb_detail.Text += focusElement.Current.Name + "\r\n";
                     break;
                 case "Silverlight":
                     break;
