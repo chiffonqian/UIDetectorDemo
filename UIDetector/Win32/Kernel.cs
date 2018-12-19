@@ -851,6 +851,7 @@ namespace Win32Native
 	{
 		[DllImport("kernel32")] public static extern void OutputDebugString(string lpszOutputString);
 		[DllImport("KERNEL32")] public static extern int ConvertDefaultLocale(int Locale);
+        [DllImport("KERNEL32")] public static extern bool IsWow64Process([In] IntPtr process, [Out] out bool wow64Process);
 		[DllImport("KERNEL32")] public static extern int EnumDateFormats(int lpDateFmtEnumProc, int Locale, int dwFlags);
 		[DllImport("KERNEL32")] public static extern int EnumSystemCodePages(int lpCodePageEnumProc, int dwFlags);
 		[DllImport("KERNEL32")] public static extern int EnumSystemLocales(int lpLocaleEnumProc, int dwFlags);
